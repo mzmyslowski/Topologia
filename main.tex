@@ -6,31 +6,43 @@
 \usepackage{amssymb}
 \usepackage{amsmath}
 \usepackage{etoolbox}
+\usepackage{hyperref}
 
 
-\theoremstyle{plain}%
+\theoremstyle{definition}%
 \newtheorem{defn}{Definicja}
 
-\theoremstyle{definition}
+\theoremstyle{theorem}
 \newtheorem{zad}{Zadanie}
 \AfterEndEnvironment{zad}{\noindent\ignorespaces}
 
 \newtheorem{theo}{Stwierdzenie}
 
+\renewenvironment{proof}{{\bfseries Rozwiązanie}}{\qed}
+
+
 \title{Topologia *}
 \author{Mateusz Zugaj, Michal Zmyslowski}
 \date{Listopad 2017}
 
-
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Pow}{\mathcal{P}}
 
 
 \begin{document}
 	
 	\maketitle
-	
-	\begin{defn}
-		(Topologie na prostej) W zbiorze liczb rzeczywistych $\mathbb{R}$ definiujemy rodziny podzbiorów $\mathcal{T}_{i}$:\\
-		1. $\mathcal{T}_{1}=\mathcal{P}(\mathbb{R})$ - topologia dyskretna
+	\begin{defn}[Topologie na prostej] W zbiorze liczb rzeczywistych  $\R$ zdefiniujmy rodziny podzbiorów~${\cal T}_i$:
+		\begin{enumerate}
+			\item ${\cal T}_1=\Pow (\R)$ -- topologia dyskretna
+			\item ${\cal T}_2=\{U\subset \R\colon  \forall_{s\in U}\exists_{t>s}[s,t)\subset U\}$ -- topologia prawej strzałki
+			\item ${\cal T}_3=\{U\subset \R\colon  \forall_{s\in U}\exists_{t<s}(t,s]\subset U\}$ -- topologia lewej strzałki
+			\item ${\cal T}_4=\{U\subset \R\colon  \forall_{s\in U}\exists_{r<s<t}(r,t)\subset U\}$  -- topologia euklidesowa
+			\item ${\cal T}_5=\{\emptyset\}\cup\{\R\}\cup\{(-\infty,x)\colon x\in \R\}$ - topologia lewych przedziałów
+			\item ${\cal T}_6=\{\emptyset\}\cup\{\R\}\cup\{(x,+\infty)\colon x\in \R\}$ - topologia prawych przedziałów
+			\item ${\cal T}_7=\{\emptyset\}\cup\{\R\}\cup\{U\subset \R\colon  \R\setminus U \; \hbox{jest zbiorem skończonym}\}$ -- topologia Zariskiego
+			\item ${\cal T}_8=\{\emptyset\}\cup\{\R\}$ -- topologia antydyskretna
+		\end{enumerate}
 	\end{defn}
 	
 	\begin{zad}
@@ -40,18 +52,22 @@
 		c) Zbadaj, które topologie $\mathcal{T}_{i}$ mają własność Hausdorffa.\\
 		d) O których parach przestrzeni $(\mathbb{R},\mathcal{T}_{i})$,$(\mathbb{R},\mathcal{T}_{j})$ potrafisz powiedzieć, że są lub nie są homeomorficzne? Narysuj i wypełnij tabelkę.
 	\end{zad}
+	\begin{proof}
 	b) Ewidentnie $\mathcal{T}_{2}\subset\mathcal{T}_{1}$ i $\mathcal{T}_{3}\subset\mathcal{T}_{1}$. Następnie $[0,1)\in\mathcal{T}_{2}$, ale $[0,1)\not\in\mathcal{T}_{3}$. Podobnie $(0,1]\in\mathcal{T}_{3}$, ale $(0,1]\not\in\mathcal{T}_{2}$. Mamy, że $(0,1)\in\mathcal{T}_{4}$, jak również $(0,1)\in\mathcal{T}_{3}$ i $(0,1)\in\mathcal{T}_{2}$. Jednak $[0,1)\not\in\mathcal{T}_{4}$ i $(0,1]\not\in\mathcal{T}_{4}$. Czyli $\mathcal{T}_{4}\subset\mathcal{T}_{2}$ i $\mathcal{T}_{4}\subset\mathcal{T}_{3}$. Teraz $(-\infty,1)\in\mathcal{T}_{5}$, jak również $(-\infty,1)\in\mathcal{T}_{4}$. Podobnie $(1, \infty)\in\mathcal{T}_{6}$ i $(1, \infty)\in\mathcal{T}_{4}$. Jednak $(0,1)\not\in\mathcal{T}_{5}$ i $(0,1)\not\in\mathcal{T}_{6}$. Tak więc, $\mathcal{T}_{5}\subset\mathcal{T}_{4}$ i $\mathcal{T}_{6}\subset\mathcal{T}_{4}$. Mamy $(-\infty,1)\not\in\mathcal{T}_{7}$ i $(1, \infty)\not\in\mathcal{T}_{7}$. Teraz $\mathbb{R}\setminus\{1\}\in\mathcal{T}_{7}$, ale $\mathbb{R}\setminus\{1\}\not\in\mathcal{T}_{5}$ i $\mathbb{R}\setminus\{1\}\not\in\mathcal{T}_{6}$. Jednak $\mathbb{R}\setminus\{1\}\in\mathcal{T}_{4}$. Czyli $\mathcal{T}_{7}\subset\mathcal{T}_{4}$. Ostatecznie $\mathcal{T}_{8}\subset\mathcal{T}_{5}$, $\mathcal{T}_{8}\subset\mathcal{T}_{6}$,
 	$\mathcal{T}_{8}\subset\mathcal{T}_{7}$.
 	c) Weźmy dowolne $x,y\in\mathbb{R}$ takie, że $x<y$. Teraz $\mathcal{T}_{1}$ ma własność Hausdorffa, bo $\{x\},\{y\}\in\mathcal{T}_{1}$. Następnie dobierzmy $s,t,r\in\mathbb{R}$, że $x\in(s,t)$ i $y\in(t,r)$. Teraz  $(s,t)\in\mathcal{T}_{4}$ i $(t,r)\in\mathcal{T}_{4}$. Więc $\mathcal{T}_{2}$, $\mathcal{T}_{3}$ i $\mathcal{T}_{4}$ mają własność Hausdorffa.
 	Przestrzenie $\mathcal{T}_{i}$ dla $i=5,6,7,8$ nie mają własności Hausdorffa.\\
 	d) Od razu można powiedzieć, że każda $\mathcal{T}_{i}$ dla $i=1,2,3,4$ nie jest homeomorficzna z żadną z $\mathcal{T}_{j}$ dla $j=5,6,7,8$, bo wcześniejsze mają własność Hausdorffa, a późniejsze nie. Również $\mathcal{T}_{1}$ nie jest homeomorficzna z $\mathcal{T}_{8}$, bo moc pierwszej jest większa od drugiej, co wiadomo ze Wstępu do Matematyki.
-	\newpage
+	\end{proof}
+	
 	\begin{zad}
 		Niech $d_i$ dla $i = 1,2$ będą dwoma metrykami w zbiorze X. Następujące warunki są równoważne:\\
 		1. Topologia wyznaczona przez $d_2$ jest drobniejsza niż wyznaczona przez $d_1$, tzn. $\mathcal{T}(d_1)\subset\mathcal{T}(d_2)$.\\
 		2. Dla każdej kuli $\mathcal{B}_{d_1}(x,r_1)$ istnieje liczba $r_2>0$ taka, że $\mathcal{B}_{d_2}(x,r_2)\subset\mathcal{B}_{d_1}(x,r_1)$.\\
-		3. Jeśli ciąg jest zbieżny w metryce $d_2$ to jest zbieżny w metryce $d_1$ do tej samej granicy.\\
-		$1\implies2$\\
+		3. Jeśli ciąg jest zbieżny w metryce $d_2$ to jest zbieżny w metryce $d_1$ do tej samej granicy.
+			\end{zad}
+		\begin{proof}
+		\\	$1\implies2$\\
 		Załóżmy, że $\mathcal{T}(d_1)\subset\mathcal{T}(d_2)$. Niech $\mathcal{B}_{d_1}(x,r_1)\in\mathcal{T}(d_1)$. Z założenia $\mathcal{B}_{d_1}(x,r_1)\in\mathcal{T}(d_2)$. Z definicji topologii $\mathcal{T}(d_2)$ istnieje $r_2>0$ takie, że\\
 		$\mathcal{B}_{d_2}(x,r_2)\subset\mathcal{B}_{d_1}(x,r_1)$.\\
 		$2\implies1$\\
@@ -61,14 +77,16 @@
 		$3\implies1$\\
 		Załóżmy, że jeśli ciąg jest zbieżny w metryce $d_2$ to jest zbieżny w metryce $d_1$. Zawieranie się topologii jest równoważne zawieraniu się rodziny zbiorów domkniętych, tzn. $\mathcal{F}_{\mathcal{T}(d_1)}\subset\mathcal{F}_{\mathcal{T}(d_2)}\Longleftrightarrow\mathcal{T}(d_1)\subset\mathcal{T}(d_2)$. Udowodnimy ten fakt w "prawą" stronę. Niech $A\in\mathcal{F}_{\mathcal{T}(d_1)}$. Jako, że $A$ jest zbiorem domkniętym to $X\setminus A$ jest zbiorem otwartym, więc $X\setminus A\in\mathcal{T}(d_1)$. Z założenia wynika, że $A\in\mathcal{F}_{\mathcal{T}(d_2)}$, więc również $X\setminus A\in\mathcal{T}(d_2)$. Niech $M\in\mathcal{F}_{\mathcal{T}(d_1)}$. Z definicji domknięcia dostajemy, że $M\subset cl_{\mathcal{T}(d_2)}(M)$. Jeżeli $x\in cl_{\mathcal{T}(d_2)}(M)$, to istnieje $\{x_n\}_{n=1}^\infty \subset M$, taki, że $d_2(x_n,x)\to 0$. Z założenia dostajemy, że $d_1(x_n,x)\to 0$. Z tego wynika, że $x\in cl_{\mathcal{T}(d_1)}(M)$. M jest domknięty w $\mathcal{T}(d_1)$, czyli $M=cl_{\mathcal{T}(d_1)}(M)$. A z tego mamy, że $x\in M$, co daje
 		$cl_{\mathcal{T}(d_2)}(M)\subset M$. Wtedy $cl_{\mathcal{T}(d_2)}(M)=M$, a z tego wynika, że $M\in \mathcal{F}_{\mathcal{T}(d_2)}$, czyli  $\mathcal{F}_{\mathcal{T}(d_1)}\subset \mathcal{F}_{\mathcal{T}(d_2)}$. Tak więc, na mocy faktu, który wcześniej udowodniliśmy $\mathcal{T}(d_1)\subset\mathcal{T}(d_2)$.\\
-	\end{zad}
+		\end{proof}
+
 	\begin{defn}
 		Niech $(X,\mathcal{T})$ będzie przestrzenią topologiczną. Przez $C(X)$ oznaczamy zbiór
-		funkcji ciągłych $f:(X,\mathcal{T}) \to (\mathbb{R},\mathcal{T}_{e})$, a przez $C_{b}(X)$ jego zbiór składający się z funkcji ograniczonych. Dla dowolnej funkcji $f \in C_{b}(X)$ definiujemy $\|f\|_{sup}:=sup\{|f(x)|:x \in X\}$ oraz $\|f\|_{L^1}:=\int_0^1 |f(t)| dt$.
+		funkcji ciągłych $f:(X,\mathcal{T}) \to (\mathbb{R},\mathcal{T}_{e})$, a przez $C_{b}(X)$ jego podzbiór składający się z funkcji ograniczonych. Dla dowolnej funkcji $f \in C_{b}(X)$ definiujemy $\|f\|_{sup}:=sup\{|f(x)|:x \in X\}$ oraz $\|f\|_{L^1}:=\int_0^1 |f(t)| dt$.
 	\end{defn}
 	\begin{zad}
 		Porównać topologię wyznaczoną przez normę $\|f\|_{sup}$ z topologią wyznaczoną przez normę $\|f\|_{L^1}$.
 	\end{zad}
+	\begin{proof}
 	Niech
 	\[f_{n}(x):= \begin{cases} 
 	1-nx\ ,\ x \in [0,\frac{1}{n}]\\
@@ -76,7 +94,8 @@
 	\end{cases}\] Wtedy  $f_{n} \in C_{b}([0,1])$ i  $\|f_{n}(x)\|_{L^1}=\frac{1}{2n} \to 0$, ale
 	$\|f_{n}(x)\|_{sup}=1 \not\to 0$.\\
 	Rozważmy $g_{n} \in C_{b}([0,1])$ taką, że $\|g_{n}(x)\|_{sup} \to 0$.
-	Wtedy $\|g_{n}(x)\|_{L^1}\leq$\\ $sup(|g_{n}(x)|)(1-0)\to 0$.\\
+	Wtedy na mocy \href[page=220]{skryptAM1.pdf}{9.31} $\|g_{n}(x)\|_{L^1}\leq$ $sup(|g_{n}(x)|)(1-0)\to 0$.\\
 	Niech $d_{sup}(f,g)=\|f-g\|_{sup}$ i $d_{L^1}(f,g)=\|f-g\|_{L^1}$.
 	Rozpatrzmy $(C_{b}(X), d_{sup})$  i $(C_{b}(X), d_{L^1})$. Jeżeli $f_n$ jest zbieżny do f w przestrzeni $(C_{b}(X), d_{sup})$, tzn. $d_{sup}(f_n,f)\to0$, to z wcześniejszych obserwacji $d_{L^1}(f_n,f)\to0$, czyli jest zbieżny, również do f, w $(C_{b}(X), d_{L^1})$. Z poprzedniego zadania wiemy już, że wtedy $\mathcal{T}(d_{L^1})\subset\mathcal{T}(d_{sup})$.
+	\end{proof}
 \end{document}%
