@@ -25,8 +25,11 @@
 \author{Mateusz Zugaj, Michal Zmyslowski}
 \date{Listopad 2017}
 
-\newcommand{\R}{\mathbb{R}}
-\newcommand{\Pow}{\mathcal{P}}
+
+%Skrócone oznaczenia
+\newcommand{\R}{\mathbb{R}} %Zbiór liczb rzeczywistych
+\newcommand{\Pow}{\mathcal{P}} %Zbiór potęgowy
+\newcommand{\sT}{\mathcal{T}} %Topologia
 
 
 \begin{document}
@@ -59,6 +62,52 @@
 	Przestrzenie $\mathcal{T}_{i}$ dla $i=5,6,7,8$ nie mają własności Hausdorffa.\\
 	d) Od razu można powiedzieć, że każda $\mathcal{T}_{i}$ dla $i=1,2,3,4$ nie jest homeomorficzna z żadną z $\mathcal{T}_{j}$ dla $j=5,6,7,8$, bo wcześniejsze mają własność Hausdorffa, a późniejsze nie. Również $\mathcal{T}_{1}$ nie jest homeomorficzna z $\mathcal{T}_{8}$, bo moc pierwszej jest większa od drugiej, co wiadomo ze Wstępu do Matematyki.
 	\end{proof}
+	
+	\begin{zad} [Bukiet prostych] Niech $J$ będzie dowolnym zbiorem. W zbiorze $\R\times J$ rozpatrzmy relację równoważności $$(t,i)\sim (s,j)\quad\text{wtedy i tylko wtedy gdy}\quad t=s=0\quad\text{lub} \quad (t,i) = (s,j)$$ a zbiór klas abstrakcji oznaczmy  $\R\wedge J^+$. Zauważmy, że $\R\wedge J^+ = \R\times J/0\times J$ tzn. powstaje z iloczynu  $\R\times J$ przez utożsamienie do punktu podzbioru $0\times J$. W zbiorze $\R\wedge J^+$ rozpatrzymy dwie topologie:
+		\begin{enumerate} 
+			\item Topologię $\sT_k$ wyznaczoną przez metrykę węzła $d_k((t,i),(s,j)) = \begin{cases}  |t-s|\, \text{jeśli}\, i=j \\ |t|+|s|\, \text{jeśli}\, i\neq j\end{cases}$
+			
+			\item Topologię słabą $\sT_w$  tzn. taką, że zbiór $U\subset \R\wedge J^+$ jest otwarty wtedy i tylko wtedy gdy dla każdego $i\in J$ zbiór $U\cap \R\times\{i\}$ jest otwarty w topologii euklidesowej prostej. 
+		\end{enumerate}
+		Zauważ, że 
+		\begin{enumerate}
+			\item $\sT_k\subset \sT_w$
+			\item Jeśli $|J|\geq \aleph_0$, to topologia słaba nie spełnia pierwszego aksjomatu przeliczalności.
+			\item Jeśli $|J|\geq \aleph_0$, to topologia słaba jest niemetryzowalna.
+		\end{enumerate} 
+		 \end{zad}
+		 \begin{proof}
+		 	\begin{enumerate}
+		 		\item Niech $U \in \sT_k$. Zauważmy, że kule $B((x,i),r)$ w metryce $d_k$ występują w dwóch postaciach
+		 		\begin{enumerate}
+		 			\item $B((x,i),r)$ dla $r\leq|x|$ jest odcinkiem otwartym na i-tej prostej, tj. \[
+		 			B((x,i),r) \cap \left(\R \times {i}\right) = \underbrace{(x-r,x+r)}_{\text{przedział otwarty!}} \times \{i\}\]
+		 			\item Dla $r > |x|$ jest to suma dwóch zbiorów, odcinka otwartego zdefiniowanego tak samo jak wyżej ["patyczka"] 
+		 			\[
+		 			B((x,i),r) \cap \left(\R \times {i}\right) = \underbrace{(x-r,x+r)}_{\text{przedział otwarty!}} \times \{i\}\]
+		 			oraz zbioru ["lizaka"]
+		 			\[
+		 			(-(r-|x|),r-|x|)\times \left(J \setminus \{i\}\right)
+		 			\]
+		 		\end{enumerate}
+		 		Z definicji przestrzeni wyznaczanej przez metrykę każdy zbiór otwarty jest sumą kul w tej metryce, tj. $U=\bigcup_{u\in U } B_u$, gdzie $B_u = B(u,r)$ są zawarte w $U$. \\
+		 		Chcemy pokazać, że $U\in \sT_w$, czyli że dla każdego $i$ zbiór $U\cap \left( \R\times\{i\}\right)$ jest otwarty w topologii euklidesowej. Skoro $U = \bigcup B_u$ to wystarczy, że $B_u$ będzie otwarte w $\sT_w$ - wtedy $U$ jako suma zbiorów otwartych w $\sT_w$ będzie otwarta. \\
+		 		Ale każda kula jest otwarta w $\sT_w$. Dla dowolnej zachodzi 
+		 		\[
+		 		B((x,j),r) \cap \left(\R \times \{i\}\right) = \begin{cases}
+		 		(x-r,x+r) & r < |x| \vee j = i \\
+		 		(-(r-|x|),r-|x|) & r \geq |x| \wedge j \neq i
+		 		
+		 		\end{cases}
+		 		\]
+			 	W każdym przypadku, iloczyn jest przedziałem otwartym w topologii euklidesowej. Zatem $B((x,j),r) \in \sT_w$, więc $U\in \sT_w$ zgodnie z tym co wcześniej ustaliliśmy.
+			 	\item 
+		 		
+		 		
+		 		
+		 	\end{enumerate}
+		 	
+		 \end{proof}
 	
 	\begin{zad}
 		Niech $d_i$ dla $i = 1,2$ będą dwoma metrykami w zbiorze X. Następujące warunki są równoważne:\\
