@@ -102,9 +102,15 @@
 		 		\]
 			 	W każdym przypadku, iloczyn jest przedziałem otwartym w topologii euklidesowej. Zatem $B((x,j),r) \in \sT_w$, więc $U\in \sT_w$ zgodnie z tym co wcześniej ustaliliśmy.
 			 	\item 
-		 		
-		 		
-		 		
+		 		Udowodnimy, że topologia słaba nie ma punktowej bazy przeliczalnej w 0. \\
+		 		Załóżmy, że istnieje taka baza $= \{U_1,U_2,U_3,\cdots\}$. Niech $J_0 \subseteq J$ będzie zbiorem przeliczalnym w $J$ i $J_0=\{j_1,j_2,\cdots\}$. Skonstruujemy taki zbiór otwarty $U$, że $0\in V$ ale $\forall k\in \mathbb{N} \; U_k \not\subseteq V$.
+		 		Mianowicie bierzemy zbiory
+		 		\[
+		 		V_k \subsetneq U_k \cap \left(\R \times \{j_k\}\right)
+		 		\]
+		 		I teraz $V=\bigcup V_k \cup \left((J\setminus J_0)\times \R\right)$. Widzimy, że gdyby $U_k \subseteq V$, to musiałoby być $U_k\cap (\R \times \{j_k\}) \subseteq V \cap (\R \times \{j_k\}) = V_k$, co jest sprzeczne z definicji $V_k$. Zatem założenie o istnieniu bazy przeliczalnej w zerze jest fałszywe.
+		 		\item
+		 		Gdyby przestrzeń była metryzowalna, to zbiór kul o promieniach wymiernych o środku w 0 byłaby bazą punktową przeliczalną w zerze, co przy tych założeniach jest niemożliwe na mocy poprzedniego podpunktu.
 		 	\end{enumerate}
 		 	
 		 \end{proof}
