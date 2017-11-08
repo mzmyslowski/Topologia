@@ -7,6 +7,10 @@
 \usepackage{amsmath}
 \usepackage{etoolbox}
 \usepackage{hyperref}
+\usepackage{graphicx} %do grafik
+\usepackage{float}
+
+\graphicspath{ {obrazki/} }
 
 
 \theoremstyle{definition}%
@@ -82,6 +86,10 @@
 		 		\begin{enumerate}
 		 			\item $B((x,i),r)$ dla $r\leq|x|$ jest odcinkiem otwartym na i-tej prostej, tj. \[
 		 			B((x,i),r) \cap \left(\R \times {i}\right) = \underbrace{(x-r,x+r)}_{\text{przedział otwarty!}} \times \{i\}\]
+		 			\begin{figure}[H]
+		 			\includegraphics{zad_toposlaba1}
+		 			\centering
+		 			\end{figure}
 		 			\item Dla $r > |x|$ jest to suma dwóch zbiorów, odcinka otwartego zdefiniowanego tak samo jak wyżej ["patyczka"] 
 		 			\[
 		 			B((x,i),r) \cap \left(\R \times {i}\right) = \underbrace{(x-r,x+r)}_{\text{przedział otwarty!}} \times \{i\}\]
@@ -89,6 +97,11 @@
 		 			\[
 		 			(-(r-|x|),r-|x|)\times \left(J \setminus \{i\}\right)
 		 			\]
+		 		
+		 	\begin{figure}[H]
+		 		\includegraphics{zad_toposlaba2}
+		 		\centering
+		 	\end{figure}
 		 		\end{enumerate}
 		 		Z definicji przestrzeni wyznaczanej przez metrykę każdy zbiór otwarty jest sumą kul w tej metryce, tj. $U=\bigcup_{u\in U } B_u$, gdzie $B_u = B(u,r)$ są zawarte w $U$. \\
 		 		Chcemy pokazać, że $U\in \sT_w$, czyli że dla każdego $i$ zbiór $U\cap \left( \R\times\{i\}\right)$ jest otwarty w topologii euklidesowej. Skoro $U = \bigcup B_u$ to wystarczy, że $B_u$ będzie otwarte w $\sT_w$ - wtedy $U$ jako suma zbiorów otwartych w $\sT_w$ będzie otwarta. \\
