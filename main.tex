@@ -32,9 +32,12 @@
 
 %Skrócone oznaczenia
 \newcommand{\R}{\mathbb{R}} %Zbiór liczb rzeczywistych
+\newcommand{\Z}{\mathbb{Z}} 
+\newcommand{\C}{\mathbb{C}} 
 \newcommand{\Pow}{\mathcal{P}} %Zbiór potęgowy
 \newcommand{\sT}{\mathcal{T}} %Topologia
-
+\newcommand{\oU}{\mathcal{U}}
+\newcommand{\oV}{\mathcal{V}}
 
 \begin{document}
 	
@@ -63,7 +66,9 @@
 	b) Ewidentnie $\mathcal{T}_{2}\subset\mathcal{T}_{1}$ i $\mathcal{T}_{3}\subset\mathcal{T}_{1}$. Następnie $[0,1)\in\mathcal{T}_{2}$, ale $[0,1)\not\in\mathcal{T}_{3}$. Podobnie $(0,1]\in\mathcal{T}_{3}$, ale $(0,1]\not\in\mathcal{T}_{2}$. Mamy, że $(0,1)\in\mathcal{T}_{4}$, jak również $(0,1)\in\mathcal{T}_{3}$ i $(0,1)\in\mathcal{T}_{2}$. Jednak $[0,1)\not\in\mathcal{T}_{4}$ i $(0,1]\not\in\mathcal{T}_{4}$. Czyli $\mathcal{T}_{4}\subset\mathcal{T}_{2}$ i $\mathcal{T}_{4}\subset\mathcal{T}_{3}$. Teraz $(-\infty,1)\in\mathcal{T}_{5}$, jak również $(-\infty,1)\in\mathcal{T}_{4}$. Podobnie $(1, \infty)\in\mathcal{T}_{6}$ i $(1, \infty)\in\mathcal{T}_{4}$. Jednak $(0,1)\not\in\mathcal{T}_{5}$ i $(0,1)\not\in\mathcal{T}_{6}$. Tak więc, $\mathcal{T}_{5}\subset\mathcal{T}_{4}$ i $\mathcal{T}_{6}\subset\mathcal{T}_{4}$. Mamy $(-\infty,1)\not\in\mathcal{T}_{7}$ i $(1, \infty)\not\in\mathcal{T}_{7}$. Teraz $\mathbb{R}\setminus\{1\}\in\mathcal{T}_{7}$, ale $\mathbb{R}\setminus\{1\}\not\in\mathcal{T}_{5}$ i $\mathbb{R}\setminus\{1\}\not\in\mathcal{T}_{6}$. Jednak $\mathbb{R}\setminus\{1\}\in\mathcal{T}_{4}$. Czyli $\mathcal{T}_{7}\subset\mathcal{T}_{4}$. Ostatecznie $\mathcal{T}_{8}\subset\mathcal{T}_{5}$, $\mathcal{T}_{8}\subset\mathcal{T}_{6}$,
 	$\mathcal{T}_{8}\subset\mathcal{T}_{7}$.
 	c) Weźmy dowolne $x,y\in\mathbb{R}$ takie, że $x<y$. Teraz $\mathcal{T}_{1}$ ma własność Hausdorffa, bo $\{x\},\{y\}\in\mathcal{T}_{1}$. Następnie dobierzmy $s,t,r\in\mathbb{R}$, że $x\in(s,t)$ i $y\in(t,r)$. Teraz  $(s,t)\in\mathcal{T}_{4}$ i $(t,r)\in\mathcal{T}_{4}$. Więc $\mathcal{T}_{2}$, $\mathcal{T}_{3}$ i $\mathcal{T}_{4}$ mają własność Hausdorffa.
-	Przestrzenie $\mathcal{T}_{i}$ dla $i=5,6,7,8$ nie mają własności Hausdorffa.\\
+	Pokażemy,  że przestrzeń $\mathcal{T}_{5}$ nie ma własności Hausdorffa, z czego przez analogiczny sposób rozumowania będzie wynikało, że $\mathcal{T}_{6}$ też nie ma. Weźmy 
+	$x,y\in\R$. Bez straty ogólności, załóżmy, że $x<y$. Zbiór otwarty w $\sT_{5}$ zawierający $y$ będzie miał postać $(-\infty,s)$ dla $s\in\R$. Z założenia, że  $x<y$ dostajemy $x\in(-\infty,s)$. Teraz udowodnimy, że $\sT_{7}$ nie ma własności Hausdorffa. Weźmy dowolne $x,y\in\R$ oraz $\oU,\oV\in\sT_{7}$ takie, że $x\in\oU$ i $y\in\oV$. Teraz $\oU\cap\oV\in\sT_{7}$, z czego wynika, że $\R\setminus(\oU\cap\oV)$ jest skończony. Tak więc, 
+	$\oU\cap\oV\not=\varnothing$, bo w przeciwnym przypadku $\R\setminus(\oU\cap\oV)$ byłby nieprzeliczalny. W $\sT_{8}$ jedynymi zbiorami otwartymi są $\varnothing$ i $\R$, czyli dowolne dwa punkty leżą w tym samym zbiorze, mianowicie $\R$. Tak więc, $\sT_{8}$ nie jest Hausdorffa.\\
 	d) Od razu można powiedzieć, że każda $\mathcal{T}_{i}$ dla $i=1,2,3,4$ nie jest homeomorficzna z żadną z $\mathcal{T}_{j}$ dla $j=5,6,7,8$, bo wcześniejsze mają własność Hausdorffa, a późniejsze nie. Również $\mathcal{T}_{1}$ nie jest homeomorficzna z $\mathcal{T}_{8}$, bo moc pierwszej jest większa od drugiej, co wiadomo ze Wstępu do Matematyki.
 	\end{proof}
 	
@@ -73,11 +78,11 @@
 			
 			\item Topologię słabą $\sT_w$  tzn. taką, że zbiór $U\subset \R\wedge J^+$ jest otwarty wtedy i tylko wtedy gdy dla każdego $i\in J$ zbiór $U\cap \R\times\{i\}$ jest otwarty w topologii euklidesowej prostej. 
 		\end{enumerate}
-		Zauważ, że 
+		Udowodnij, że 
 		\begin{enumerate}
 			\item $\sT_k\subset \sT_w$
 			\item Jeśli $|J|\geq \aleph_0$, to topologia słaba nie spełnia pierwszego aksjomatu przeliczalności.
-			\item Jeśli $|J|\geq \aleph_0$, to topologia słaba jest niemetryzowalna.
+			\item Jeśli topologia nie spełnia pierwszego aksjomatu przeliczalności, to nie jest metryzowalna.
 		\end{enumerate} 
 		 \end{zad}
 		 \begin{proof}
@@ -166,4 +171,19 @@
 	Niech $d_{sup}(f,g)=\|f-g\|_{sup}$ i $d_{L^1}(f,g)=\|f-g\|_{L^1}$.
 	Rozpatrzmy $(C_{b}(X), d_{sup})$  i $(C_{b}(X), d_{L^1})$. Jeżeli $f_n$ jest zbieżny do f w przestrzeni $(C_{b}(X), d_{sup})$, tzn. $d_{sup}(f_n,f)\to0$, to z wcześniejszych obserwacji $d_{L^1}(f_n,f)\to0$, czyli jest zbieżny, również do f, w $(C_{b}(X), d_{L^1})$. Z poprzedniego zadania wiemy już, że wtedy $\mathcal{T}(d_{L^1})\subset\mathcal{T}(d_{sup})$.
 	\end{proof}
+	\begin{defn}
+	Grupą topologiczną nazywamy zbiór $G$ wyposażony w topologię i strukturę grupową tak, że działanie grupowe $G\times G \to G$ oraz branie elementu odwrotnego $-^{-1}\colon G\to G$ są odwzorowaniami ciągłymi.  Homomorfizmem grup topologicznych nazywamy homomorfizm grup, który jest ciągły.
+	\end{defn}
+	\begin{zad} 
+Przestrzeń grupy topologicznej jest jednorodna tzn. dla dowolnych dwóch punktów $x,y\in G$ istnieje homeomorfizm $f\colon G\to G$ taki, że $f(y)=x$.  
+	\end{zad}
+	\begin{proof}
+	Niech $x,y\in G$ i $f_{xy^{-1}}:G\to G$ będzie funkcją taką, że \\
+	$f_{xy^{-1}}(a):=xy^{-1}a$. Zauważmy, że $f_{xy^{-1}}(y):=xy^{-1}y=x$. Pokażemy, że jest to homeomorfizm. $f_{xy^{-1}}$ jest surjekcją, ponieważ dla dowolnego $a\in G$ mamy $f_{xy^{-1}}(yx^{-1}a)=xy^{-1}yx^{-1}a=a$. $f_{xy^{-1}}$ jest iniekcją, bo jeżeli  $f_{xy^{-1}}(a)=f_{xy^{-1}}(b)$, to $xy^{-1}a=xy^{-1}b$, czyli $a=b$. Tak więc, $f_{xy^{-1}}$  jest bijekcją.  Żeby pokazać, że $f_{xy^{-1}}$ jest ciągłe i otwarte udowodnimy ogólniejsze prawdę, która przyda nam się również w późniejszych rozważaniach. Niech $\phi_{g}:G\to G$ takie, że $\phi_{g}(x)=gx$. Pokażemy, że $\phi_{g}$ jest homeomorfizmem.  Jest bijekcją, ponieważ $\phi_{g^{-1}}$ jest przekształceniem do niego odwrotnym. Niech $U\subset G$ będzie otwarty. Działanie grupowe jest ciągłe, więc $V=\{(x,y)\in G:xy\in U\}$ jest otwarty w $G\times G$.  Niech $\pi:G\times G\to G$ takie, że $\pi (x,y):=y$ i $G_{g}=\{g\}\times G$. Odwzorowanie $\pi$ jest otwarte (Wniosek 5.4.1). Teraz $V\cap G_{g}$ jest otwarte w $G_{g}$, więc $\pi[V\cap G_{g}]$ jest otwarte w $G$.  Mamy, $\pi[V\cap G_{g}]=\{x\in G: (g,x)\in V\}=\{x\in G:gx\in U\}=\phi_{g}^{-1}[U]$. Przeciwobraz $\phi_{g}^{-1}[U]$ jest otwarty, więc $\phi_{g}$ jest ciągłe. Również $\phi_{g^{-1}}$ jest ciągłe, bo g było dowolne. Tak więc, $\phi_{g}$ jest homeomorfizmem.  Homeomorfizm jest otwarty, więc $\phi_{g}[U]=gU$ jest otwarty. 
+	\end{proof}
+	\begin{zad}
+Jeśli $H\subset G$ jest podgrupą normalną, to grupa ilorazowa $G/H$ z topologią ilorazową jest grupą topologiczną. (Wsk. Odwzorowanie ilorazowe $p\colon G \to G/H$ jest otwarte). Udowodnij, że odwzorowanie  $p:\R\to S^1$, gdzie $S^1:=\{z\in\C\ |\ |z|=1\}$, dane wzorem $p(t) := \cos 2\pi t + (\sin  2\pi t)i  = e^{2\pi it} $ jest homomorfizmem grup  topologicznych (w $\R$ struktura addytywna, w $S^1$ multiplikatywna) oraz  definiuje izomorfizm grup topologicznych $\R/\Z \to S^1$. \end{zad}
+\begin{proof}
+Odwzorowanie ilorazowe $\pi : G\to G/H$ jest zdefiniowane następująco $\pi(g):=gH$. Ciągłość $\pi$ wynika z definicji topologii ilorazowej. 
+\end{proof}
 \end{document}%
