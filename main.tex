@@ -8,6 +8,7 @@
 \usepackage{etoolbox}
 \usepackage{hyperref}
 \usepackage{graphicx} %do grafik
+\usepackage{tikz-cd} % diagramy
 \usepackage{float}
 
 \graphicspath{ {obrazki/} }
@@ -178,12 +179,26 @@
 Przestrzeń grupy topologicznej jest jednorodna tzn. dla dowolnych dwóch punktów $x,y\in G$ istnieje homeomorfizm $f\colon G\to G$ taki, że $f(y)=x$.  
 	\end{zad}
 	\begin{proof}
-	Niech $x,y\in G$ i $f_{xy^{-1}}:G\to G$ będzie funkcją taką, że \\
-	$f_{xy^{-1}}(a):=xy^{-1}a$. Zauważmy, że $f_{xy^{-1}}(y):=xy^{-1}y=x$. Pokażemy, że jest to homeomorfizm. $f_{xy^{-1}}$ jest surjekcją, ponieważ dla dowolnego $a\in G$ mamy $f_{xy^{-1}}(yx^{-1}a)=xy^{-1}yx^{-1}a=a$. $f_{xy^{-1}}$ jest iniekcją, bo jeżeli  $f_{xy^{-1}}(a)=f_{xy^{-1}}(b)$, to $xy^{-1}a=xy^{-1}b$, czyli $a=b$. Tak więc, $f_{xy^{-1}}$  jest bijekcją.  Żeby pokazać, że $f_{xy^{-1}}$ jest ciągłe i otwarte udowodnimy ogólniejsze prawdę, która przyda nam się również w późniejszych rozważaniach. Niech $\phi_{g}:G\to G$ takie, że $\phi_{g}(x)=gx$. Pokażemy, że $\phi_{g}$ jest homeomorfizmem.  Jest bijekcją, ponieważ $\phi_{g^{-1}}$ jest przekształceniem do niego odwrotnym. Niech $U\subset G$ będzie otwarty. Działanie grupowe jest ciągłe, więc $V=\{(x,y)\in G:xy\in U\}$ jest otwarty w $G\times G$.  Niech $\pi:G\times G\to G$ takie, że $\pi (x,y):=y$ i $G_{g}=\{g\}\times G$. Odwzorowanie $\pi$ jest otwarte (Wniosek 5.4.1). Teraz $V\cap G_{g}$ jest otwarte w $G_{g}$, więc $\pi[V\cap G_{g}]$ jest otwarte w $G$.  Mamy, $\pi[V\cap G_{g}]=\{x\in G: (g,x)\in V\}=\{x\in G:gx\in U\}=\phi_{g}^{-1}[U]$. Przeciwobraz $\phi_{g}^{-1}[U]$ jest otwarty, więc $\phi_{g}$ jest ciągłe. Również $\phi_{g^{-1}}$ jest ciągłe, bo g było dowolne. Tak więc, $\phi_{g}$ jest homeomorfizmem.  Homeomorfizm jest otwarty, więc $\phi_{g}[U]=gU$ jest otwarty. 
+	Udowodnimy ogólniejsze prawdę, która przyda nam się również w późniejszych rozważaniach. Niech $\phi_{g}:G\to G$ takie, że $\phi_{g}(x)=gx$. Pokażemy, że $\phi_{g}$ jest homeomorfizmem.  Jest bijekcją, ponieważ $\phi_{g^{-1}}$ jest przekształceniem do niego odwrotnym. Niech $U\subset G$ będzie otwarty. Działanie grupowe jest ciągłe, więc $V=\{(x,y)\in G\times G:xy\in U\}$ jest otwarty w $G\times G$.  Niech $\pi:G\times G\to G$ takie, że $\pi (x,y):=y$ i $G_{g}:=\{g\}\times G$ traktujemy jako podprzestrzeń grupy topologicznej $G$. Odwzorowanie $\pi$ jest otwarte (Wniosek 5.4.1). Teraz $V\cap G_{g}$ jest otwarte w $G_{g}$, więc $\pi[V\cap G_{g}]$ jest otwarte w $G$.  Mamy, $\pi[V\cap G_{g}]=\{x\in G: (g,x)\in V\}=\{x\in G:gx\in U\}=\phi_{g}^{-1}[U]$. Przeciwobraz $\phi_{g}^{-1}[U]$ jest otwarty, więc $\phi_{g}$ jest ciągłe. Również $\phi_{g^{-1}}$ jest ciągłe, bo $g$ było dowolne. Tak więc, $\phi_{g}$ jest homeomorfizmem. Funkcja, o której mowa w zadaniu to $f(a):=\phi_{xy^{-1}}(a)$. Pozostaje już tylko zauważyć, że $f(y)=xy^{-1}y=x$.
 	\end{proof}
 	\begin{zad}
-Jeśli $H\subset G$ jest podgrupą normalną, to grupa ilorazowa $G/H$ z topologią ilorazową jest grupą topologiczną. (Wsk. Odwzorowanie ilorazowe $p\colon G \to G/H$ jest otwarte). Udowodnij, że odwzorowanie  $p:\R\to S^1$, gdzie $S^1:=\{z\in\C\ |\ |z|=1\}$, dane wzorem $p(t) := \cos 2\pi t + (\sin  2\pi t)i  = e^{2\pi it} $ jest homomorfizmem grup  topologicznych (w $\R$ struktura addytywna, w $S^1$ multiplikatywna) oraz  definiuje izomorfizm grup topologicznych $\R/\Z \to S^1$. \end{zad}
+Jeśli $H\subset G$ jest podgrupą normalną, to grupa ilorazowa $G/H$ z topologią ilorazową jest grupą topologiczną. (Wsk. Odwzorowanie ilorazowe $p\colon G \to G/H$ jest otwarte). 
+	\end{zad}
 \begin{proof}
-Odwzorowanie ilorazowe $\pi : G\to G/H$ jest zdefiniowane następująco $\pi(g):=gH$. Ciągłość $\pi$ wynika z definicji topologii ilorazowej. 
+Odwzorowanie ilorazowe $\pi : G\to G/H$ jest zdefiniowane następująco $\pi(g):=gH$. Ciągłość $\pi$ wynika z definicji topologii ilorazowej. Pokażemy, że $\pi$ jest przekształceniem otwartym, co przyda nam się w późniejszych rozważaniach. Niech $U\subset G$ będzie otwarty. Jako, że $\pi$ jest przekształceniem ilorazowym to z definicji $\pi[U]$ jest otwarty $\Longleftrightarrow$ $\pi^{-1}[\pi[U]]$ jest otwarty. 
+Mamy $\pi^{-1}[\pi[U]]=\pi^{-1}[\{uH:u\in U\}]$ i zauważmy, że $\pi[uH]=uH$. Z tego wynika, że $\pi^{-1}[\{uH:u\in U\}]=\bigcup_{h\in H} Uh$. Zbiór $Uh$ jest otwarty na mocy faktu, który udowodniliśmy w poprzednim zadaniu, co daje, że $\bigcup_{h\in H}$ Uh jest otwarty. Tak więc, $\pi^{-1}[\pi[U]]$ jest otwarty, czyli $\pi[U]$ jest otwarty.
+Niech $m:G/H\times G/H\to G/H$ będzie działaniem grupowym. Musimy pokazać, że $m$ jest ciągłe. Niech $\pi\times\pi:G\times G\to G/H\times G/H$ będzie takie, że $\pi\times\pi (g_1,g_2):=(\pi (g_1), \pi (g_2))$ oraz $\mu :G\times G\to G$ będzie zwykłym mnożeniem w grupie topologicznej G. Mamy
+\[
+  \begin{tikzcd}
+	G\times G \arrow[r, "\mu"] \arrow[d, "\pi\times\pi"]  
+		& G \arrow[d, "\pi"] \\
+	G/H\times G/H \arrow[r, "m"]
+		& G/H
+\end{tikzcd}
+\]
+Powyższy diagram jest przemienny, tzn. $m\circ\pi\times\pi=\pi\circ\mu$. Przekształcenie $\pi\circ\mu$ jest ciągłe, bo $\pi$ i $\mu$ są ciągłe, gdzie ciągłość drugiego wynika z faktu, że G jest grupą topologiczną. Na mocy przemienności diagramu, $m\circ\pi\times\pi$ jest ciągłe. Niech $U\subset G/H$ będzie otwarty. Przeciwobraz $V=m\circ\pi\times\pi^{-1} [U]$ jest otwarty. $$\pi\times\pi\ otwarty$$ Z tego wynika, że $\pi\times\pi[V]$ jest otwarty. $$ \pi\times\pi[V] otwarte \implies m^{-1}[U] otwarte$$ Tak więc, przeciwobraz $m^{-1}[U]$ jest otwarty, czyli $m$ jest ciągłe.
 \end{proof}
+\begin{zad}
+Udowodnij, że odwzorowanie  $p:\R\to S^1$, gdzie $S^1:=\{z\in\C\ |\ |z|=1\}$, dane wzorem $p(t) := \cos 2\pi t + (\sin  2\pi t)i  = e^{2\pi it} $ jest homomorfizmem grup  topologicznych (w $\R$ struktura addytywna, w $S^1$ multiplikatywna) oraz  definiuje izomorfizm grup topologicznych $\R/\Z \to S^1$.
+\end{zad}
 \end{document}%
