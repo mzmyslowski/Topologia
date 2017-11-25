@@ -33,12 +33,18 @@
 
 %Skrócone oznaczenia
 \newcommand{\R}{\mathbb{R}} %Zbiór liczb rzeczywistych
+\newcommand{\Q}{\mathbb{Q}} 
 \newcommand{\Z}{\mathbb{Z}} 
 \newcommand{\C}{\mathbb{C}} 
 \newcommand{\Pow}{\mathcal{P}} %Zbiór potęgowy
 \newcommand{\sT}{\mathcal{T}} %Topologia
+\newcommand{\sF}{\mathcal{F}} %Topologia
 \newcommand{\oU}{\mathcal{U}}
 \newcommand{\oV}{\mathcal{V}}
+\newcommand{\oB}{\mathcal{B}}
+
+\newcommand{\vv}{\mathbf{v}}
+\newcommand{\ww}{\mathbf{w}}
 
 \begin{document}
 	
@@ -72,6 +78,48 @@
 	$\oU\cap\oV\not=\varnothing$, bo w przeciwnym przypadku $\R\setminus(\oU\cap\oV)$ byłby nieprzeliczalny. W $\sT_{8}$ jedynymi zbiorami otwartymi są $\varnothing$ i $\R$, czyli dowolne dwa punkty leżą w tym samym zbiorze, mianowicie $\R$. Tak więc, $\sT_{8}$ nie jest Hausdorffa.\\
 	d) Od razu można powiedzieć, że każda $\mathcal{T}_{i}$ dla $i=1,2,3,4$ nie jest homeomorficzna z żadną z $\mathcal{T}_{j}$ dla $j=5,6,7,8$, bo wcześniejsze mają własność Hausdorffa, a późniejsze nie. Również $\mathcal{T}_{1}$ nie jest homeomorficzna z $\mathcal{T}_{8}$, bo moc pierwszej jest większa od drugiej, co wiadomo ze Wstępu do Matematyki.
 	\end{proof}
+
+ \begin{defn}[Topologie na płaszczyźnie]\label{plaszczyzna}Na płaszczyźnie rzeczywistej   $\R^2$ zdefiniujmy rodziny podzbiorów.  $\sF_i$: (punkty płaszczyzny oznaczamy $x=(x_1,x_2)$).
+\begin{enumerate}
+\item $\sF_1=\Pow (\R^2)$ -- topologia dyskretna
+\item $\sF_2=\{(a,b)\times\R \colon a<b\}\cup\{\R\times(a,b) \colon a<b\}$
+\item $\sF_3=\{(a,b)\times (c,d) \colon  a<b,\, c<d\}$ -- topologia euklidesowa
+\item $\sF_4=\{B(x,r)\subset \R^2\colon  x\in\R^2,\,  r>0 \}$
+\item $\sF_5=\{B(x,r)\subset \R^2\colon  x\in\R^2,\,  r>0 \}\cup \{B((x_1,x_2),|x_2|)\cup \{(x_1,0)\}\cup B((x_1,- x_2),|x_2|)\, |\,  \, x_2\neq 0\}\}$ -- płaszczyzna motylków Niemyckiego\footnote{Zazwyczaj płaszczyzna Niemyckiego nazywa się górną półpłaszczyznę z opisaną topologią. Opisana przestrzeń to sklejenie dwóch  podprzestrzeni Niemyckiego wzdłuż osi poziomej $x_2=0$.}
+
+\item $\sF_6:=\{\{a\}\times (c,d) \colon a\in\R,\, c<d<0\, \text{lub}\, 0<c<d\}\cup\{ (a,b)\times (-c,c)  \colon a < b,\, c >0\}$ -- topologia rzeczna
+\item $\sF_7=\{I(\vv,\epsilon)  \colon \vv\neq 0,\, 0<\epsilon<1 \}\cup  \{(-a,a)\times (-a,a) \colon a >0\},$ gdzie  dla wektora $\vv\in\R^2$ i $\epsilon >0$,   \hbox{$I(\vv,\epsilon) := \{t\vv\,|\, 1-\epsilon < t < 1+\epsilon\}$ -- topologia kolejowa}
+\item $\sF_8=\{\emptyset\}\cup\{\R^2\}\cup\{U\subset \R^2\colon  \R^2\setminus U \; \hbox{jest zbiorem skoñczonym}\}$ -- topologia Zariskiego
+\item $\sF_{9}=\{\emptyset\}\cup\{\R\}$ -- topologia antydyskretna
+\end{enumerate}
+Topologie generowane przez te rodziny będziemy oznaczać $\sT_i := \sT (\sF_i)$.
+\end{defn}
+
+\begin{zad}
+Niech $\sF_i$ dla $i=1..9$ będą rodzinami podzbiorów płaszczyzny  opisanymi w Definicji \ref{plaszczyzna}.
+\begin{enumerate}%[\indent a)]
+\item Które z rodzin $\sF_i$ są topologiami, a które bazami topologii przez nie generowanymi?
+\item Porównaj topologie  $\sT_i := \sT (\sF_i)$, rysując diagram ich inkluzji  i zbadaj przecięcia$\sT_i\cap\sT_j$.
+\item Zbadaj, które z topologii   $\sT_i $ mają własność Hausdorffa.
+\item O których przestrzeniach $(\R^2 ,\sT_i),\, (\R^2 ,\sT_j)$ potrafisz powiedzieć, że są lub nie są homeomorficzne? Narysuj i wypełnij odpowiednią tabelkę. %(p. {\href{http://duch.mimuw.edu.pl/~betley/wyklad1/topologia.pdf}{\lnk{BCPP Zad. 1.36}}})
+\item Dla wektora $\vv\in\R^2$ definiujemy przekształcenie przesunięcia (translację) $T_\vv:\R^2\to\R^2$ wzorem $T_\vv(\ww):=\vv+\ww.$ Dla każdego $i=1..9$ zbadać dla jakich wektorów $\vv$ translacja \hbox{$T_\vv\colon (\R^2,\sT_i)\to (\R^2,\sT_i)$} jest przekształceniem ciągłym (homeomorfizmem).
+%\item {\href{http://duch.mimuw.edu.pl/~betley/wyklad1/topologia.pdf}{\lnk{BCPP Zad. 1.27}}} - (zdefiniować ciągłe odwzorowania w punkcie przy pomocy definicji Cauchy.) 
+\item Które z przestrzeni $(\R^2 ,\sT_i)$ spełniają I, a które II aksjomat przeliczalności?
+\item Które z przestrzeni $(\R^2 ,\sT_i)$  są metryzowalne? Wskaż odpowiednie metryki i zbadaj jak wyglądają kule w tych metrykach.  %(Patrz {\href{http://duch.mimuw.edu.pl/~betley/wyklad1/topologia.pdf}{\lnk{BCPP  Zad. 1.1, 1.2}}})
+\end{enumerate}
+\end{zad}
+
+\begin{proof}
+\begin{enumerate}
+\item $\sF_1=\Pow (\R^2)$ jest już topologią i spełnia warunek Hausdorffa, ponieważ każdy singleton jest otwarty. Spełnia I aksjomat przeliczalności, ponieważ dla każdego $x\in\R$ , zbiór $\{\{x\}\}$ jest bazą w punkcie $x$. Nie spełnia, jednak, II aksjomatu przeliczalności. Wynika to z faktu, że w topologii dyskretnej każdy singleton jest otwarty, a jest ich nieprzeliczalnie wiele. Nie jest również ośrodkowa, ponieważ każdy zbiór jest w niej domknięty, więc równość $cl(A)=A$ jest spełniona wyłącznie dla $A=\R$. Przestrzeń jest metryzowalna przy użyciu metryki dyskretnej, tj. $d(x,y)=0$, jeśli $x=y$ i $d(x,y)=1$, jeśli  $x\not=y$. Wszystkie przesunięcia są ciągłe, bo ogólnie każde przekształcenie z przestrzeni dyskretnej na dowolną jest ciągłe.
+\item $\sF_2=\{(a,b)\times\R \colon a<b\}\cup\{\R\times(a,b) \colon a<b\}$ nie jest topologią, ponieważ przecięcia $(a,b)\times\R\cap\R\times(a,b)$ nie należą do niej. Jest natomiast podbazą. $\sF_3=\{(a,b)\times (c,d) \colon  a<b,\, c<d\}$ również nie jest topologią, ale jest bazą, podobnie jak  $\sF_4=\{B(x,r)\subset \R^2\colon  x\in\R^2,\,  r>0 \}$. Wynika to z faktu, że suma rozłącznych ze sobą zbiorów z tych rodzin nie należy do nich. Następnie zauważymy, że topologie $\sT_2,\ \sT_3,\ \sT_4$ są identyczne. Dowód tego faktu polega na wybraniu dowolnego zbioru otwartego w jednej topologii i pokazaniu, że należy on do drugiej. W tym celu należy wybrać dowolny punkt $x\in\R^2$ ze zbioru otwartego $\oU$ w jednej topologii i wskazać zbiór otwarty $\oV_x$ w drugiej topologii, taki, że $x\in\oV_x\subset\oU$ jest właściwym podzbiorem. Suma zbiorów $\oV_x$ będzie otwarta w drugiej topologii i da nam zbiór $\oU$. Tak więc, każda z tych rodzin generuję topologię euklidesową. Topologia euklidesowa jest metryzowalna, np. $d(x,y)=\|x-y\|_2$. Jest Hausdorffa, ponieważ kule $\oB(x_1,d(x_1,x_2)/4)$ i $\oB(x_2,d(x_1,x_2)/4)$ są rozłącznymi otoczeniami dowolnych dwóch punktów $x_1,x_2\in\R^2$. Zbiór $\oU_x=\{\oB(x,1/n)\ :\ n=1,2,...\}$ jest przeliczalną bazą w dowolnym punkcie $x\in\R^2$, więc przestrzeń spełnia pierwszy aksjomat przeliczalności. Teraz $\bigcup_{x\in\Q}\oU_x$ jest przeliczalną sumą zbiorów przeliczalnych, więc jest przeliczalna i jest bazą, więc topologia euklidesowa spełnia drugi askjomat przeliczalności. Z tego wynika, że jest ośrodkowa, ponieważ wybierając z każdego zbioru bazy po jednym punkcie otrzymamy przeliczalny zbiór, który ma niepuste przecięcie z każdym zbiorem otwartym (każdy zbiór otwarty jest sumą zbiorów z bazy). Weźmy dowolny zbiór $\oU\in\sT_e$. Wiemy, już że istnieje $r_x>0$ taki, że $\oU=\bigcup_{x\in\oU}\oB(x,r_x)$. 
+Teraz $T_{\vv}^{-1}[\oU]=T_{\vv}^{-1}[\bigcup_{x\in\oU}\oB(x,r_x)]=\bigcup_{x\in\oU}T_{\vv}^{-1}[\oB(x,r_x)]=\bigcup_{x\in\oU}\oB(x-\vv,r_x)$. Tak więc, każde przesunięcie jest ciągłe.
+\item $\sF_5=\{B(x,r)\subset \R^2\colon  x\in\R^2,\,  r>0 \}\cup \{B((x_1,x_2),|x_2|)\cup \{(x_1,0)\}\cup B((x_1,- x_2),|x_2|)\, |\,  \, x_2\neq 0\}\}$ nie jest topologią, ale jest bazą. Jest Hausdorffa, ponieważ zawiera w sobie topologię euklidesową, która jest Hausdorffa. Baza w punktach leżących poza osią $x$ jest taka sama jak w topologii euklidesowej. Baza w punktach leżących na osi x to baza euklidesowa w sumie z "motylkami" o promienach $r=1/n$ dla $n=1,2,...$. Z tego wynika, że bazy w punktach są przeliczalne, czyli przestrzeń spełnia I aksjomat przeliczalności.  Jednak baza tej przestrzeni jest nieprzeliczalna. Jedynymi zbiorami otwartymi pozwalającymi pokryć "motylka" jest tylko on sam, ponieważ tylko "motylki" zawierają punkty na osi $x$. Jako, że mamy nieprzeliczalnie wiele punktów na osi $x$, to mamy nieprzeliczalnie wiele "motylków" do pokrycia. Tak więc, przestrzeń nie spełnia II aksjomatu przeliczalności. Przestrzeń jest jednak ośrodkowa. Weźmy przeliczalny zbiór gęsty w topologii euklidesowej, który skonstruowaliśmy w poprzednim przykładzie. Płaszczyzna motylków Niemyckiego powstaje przez dołożenie do topologii euklidesowej "motylków". W każdym motylku jesteśmy wstanie wskazać kulę euklidesową, z którą wiemy, że skonstruowany zbiór ma niepuste przecięcie, więc również ma niepuste przecięcie z każdym z motylków. Tak więc, jest on również przeliczalnym zbiorem gęstym w tej przestrzeni. Przesunięcia poziome są ciągłe, a przesunięcia pionowe nie, ponieważ przesuwając motylka z osi $x$ otrzymamy zbiór który nie jest otwarty.
+\item $\sF_6:=\{\{a\}\times (c,d) \colon a\in\R,\, c<d<0\, \text{lub}\, 0<c<d\}\cup\{ (a,b)\times (-c,c)  \colon a < b,\, c >0\}$
+
+
+\end{enumerate}
+\end{proof}
 	
 	\begin{zad} [Bukiet prostych] Niech $J$ będzie dowolnym zbiorem. W zbiorze $\R\times J$ rozpatrzmy relację równoważności $$(t,i)\sim (s,j)\quad\text{wtedy i tylko wtedy gdy}\quad t=s=0\quad\text{lub} \quad (t,i) = (s,j)$$ a zbiór klas abstrakcji oznaczmy  $\R\wedge J^+$. Zauważmy, że $\R\wedge J^+ = \R\times J/0\times J$ tzn. powstaje z iloczynu  $\R\times J$ przez utożsamienie do punktu podzbioru $0\times J$. W zbiorze $\R\wedge J^+$ rozpatrzymy dwie topologie:
 		\begin{enumerate} 
